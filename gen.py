@@ -15,45 +15,55 @@ def baseComp(filePath): #calculates base composition of a files
         count[2] += noWhite.count('G')
         count[3] += noWhite.count('C')
 
-    #this method will then send the base composition list to the simulate Method and createMatrix
-    #next step is to create the probabilty matrix
-        #count composition overall and use to calculate conditional compositions in create matrix
-
-
 def createMatrix(filePath):
+    #creates a dictionary which will contains the conditional probility of
+    #any given two letter word occuring
+    dict = {}
     with open(filePath) as seqFile:
-        seqFile.readline()
+        line = seqFile.readline()
+        line = line.strip()
 
-            for i in range(0,(len(noWhite)-1)):
-                first = noWhite[i]
-                read = noWhite[i] + noWhite[i+1] #creates two letter words
+        for i in range(len(line)-1):
+            word = line[i] + line[i+1]
 
-                if read in dict:
-                    dict[read] +=1
-                else:
-                    dict[read] = 1
-                    print('new one')
+            if word in dict:
+                dict[word] +=1
+            else:
+                dict[word] = 1
+        #need to divide by total words for each "row" to get conditional probs
 
-    keys = dict.keys()
-    #next need to divide number of hits by total read to get overall composition
-    #divide overall comp by first base composition to create conditional composition
+        return dict
 
 
-
-def basePicker()
-
-#Now we want to simulate the data
 def simulate(theMatrix, lengthSim, baseComposition):
+    #Simulates a given length of e. Coli genome and returns the sequence
     bases = ['A', 'T', 'G', 'C'] #list of canidates
+    pi = [0.25,0.25,0.25,0.25]
+    seq = []
+    firstBase = numpy.random.choice(bases,pi)
+    seq.append(firstBase)
 
-    #retrive probability
-        #for loop
-            #takes first base from bases list and loops through all possible and
-            #uses that as the key to generate probabilty distrabutions
-            #returns a matrix (nested lists in A, T, G, C )
-            #each base will be a list with the four possible 2 letter words
+    for i in range(len(lengthSim)):
+        current = seq[i]
+        combos = list(map((lambda x: current + x), bases))
+        pi = list(map((lambda x: dict[x]), combos))
+        next = numpy.random.choice(bases,pi)
+        seq.append(next)
+    return seq
 
-            
-    #want to create a simulated sequence
-    #first base is determined by overall composition of ecoli
-    #use choice fuction here need to create a better probability matrix from the dictionary
+def simulate(theMatrix, lengthSim, baseComposition, outputPath):
+    #Simulates a given length of e. Coli genome and prints to a file
+    bases = ['A', 'T', 'G', 'C'] #list of canidates
+    pi = [0.25,0.25,0.25,0.25]
+    seq = []
+    firstBase = numpy.random.choice(bases,pi)
+    seq.append(firstBase)
+
+    for i in range(len(lengthSim)):
+        current = seq[i]
+        combos = list(map((lambda x: current + x), bases))
+        pi = list(map((lambda x: dict[x]), combos))
+        next = numpy.random.choice(bases,pi)
+        seq.append(next)
+    with open(outputPath) as out:
+        out.write(out)
