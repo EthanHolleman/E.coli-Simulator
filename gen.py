@@ -67,3 +67,12 @@ def simulate(theMatrix, lengthSim, baseComposition, outputPath):
         seq.append(next)
     with open(outputPath) as out:
         out.write(out)
+        
+def multiSim(theMatrix, lengthSim, baseComposition, numberIterations):
+    #runs a simulation many times and provides an average sequence 
+    for i in range(1:numberIterations):
+        #run n number of simulations
+        #compare all seq position by position 
+        #most common base is added to consesus seq
+        #continue for all positions
+        #return consensus seq
