@@ -1,12 +1,12 @@
 # Seq Sim
-This is a very in progress personal project that attempts to use Markov chains to simulate nucleotide sequences given in fasta formatted files. 
 
-# Overview 
+
+## Overview 
+This is a very in progress personal project that attempts to use Markov chains to simulate nucleotide sequences given in fasta formatted files. 
 Markov chains are a basic tool of simulation which attempt to predict a future result from previously seen data. This program will use a first order Markov chain meaning it will attempt to simulate the base pair in the n+1 position from a given nucleotide sequence using the n position where n is a known nucleotide. 
 
 Markov chains attempt to make this predication by constructing probability matrices from known data. In this case the known data will be the sequence or sequences provided in the fasta format.
 
-# Planned Structure 
 
 ### Start 
 The program starts by reading in a fasta file provided by the user. Two test files are included in this project. The GMR30.txt file was taken from the collection of transposable elements within the *Glycine max* (Modern Soybean) Williams 82 assembly. You can download the complete assembly from NCBI (here)[https://www.ncbi.nlm.nih.gov/assembly/GCF_000004515.5].
