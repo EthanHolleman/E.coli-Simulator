@@ -15,7 +15,8 @@ The ecoli sequence is from *Escherichia coli* str. K-12 substr. MG1655 taken fro
 
 ### Middle
 
-  Once you have created a probability matrix and calculated the overall base composition you can then run a simulation. The intial matrix used to start the chain is determined by the base composition calculated in the previous step. A current issue is that the matrix probabilities are the total count of a given two letter word divided by the total words counted. This is incorrect and should be instead the total count of a two letter word divided by the row total for the word's first letter. This correction is coming soon. 
+  Once you have created a probability matrix and calculated the overall base composition you can then run a simulation. The intial matrix used to start the chain is determined by the base composition calculated in the previous step.
+ NOTE, a current issue is the matrix probabilities are the total count of a given two letter word divided by the total words counted. This is incorrect and should be instead the total count of a two letter word divided by the row total for the word's first letter. This correction is coming soon. 
 
 ### End
   The sequences from all simulations can then be saved in a txt or fasta file. A R script that preforms basic analysis on the results will be coming soon.
