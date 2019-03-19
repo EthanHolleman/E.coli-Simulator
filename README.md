@@ -25,6 +25,6 @@ The ecoli sequence is from *Escherichia coli* str. K-12 substr. MG1655 taken fro
   # Initial Results
   To test the accuracy of the program I ran a simulation of 13000 base and then compared the frequency of occurrence of each nucleotide to a consensus sequence of the GMR 30 retrotransposon family from *Glycine max*. 
   
-![](https://github.com/EthanHolleman/Seq-Sim/blob/master/Images/plot1.png)
+![](https://github.com/EthanHolleman/Seq-Sim/blob/master/Images/seqSim.png)
 
 While I have not conducted any formal statistical tests to asses if the simulated sequence differs significantly from the consensus (coming soon to a p-value near you) the graph shows a relatively high degree of similarity between the two.
