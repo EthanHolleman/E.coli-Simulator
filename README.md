@@ -27,4 +27,25 @@ The ecoli sequence is from *Escherichia coli* str. K-12 substr. MG1655 taken fro
   
 ![](https://github.com/EthanHolleman/Seq-Sim/blob/master/Images/seqSim.png)
 
-While I have not conducted any formal statistical tests to asses if the simulated sequence differs significantly from the consensus (coming soon to a p-value near you) the graph shows a relatively high degree of similarity between the two.
+The barplot gives an intial impression that the compositions are relatively similar but does not test this rigorously.
+
+I then ran this code in r to preform a two sample t test for significant difference between the base composition frequencies of the simulated and consensus data.
+
+```{R}
+t.test(x = freqSim,y = freqOut,mu = 0)
+#freqSim = simulated frequencies
+#freqOut = consensus frequencies
+```
+```{R}
+Welch Two Sample t-test
+
+    data:  freqSim and freqOut
+    t = -0.019445, df = 5.9956, p-value = 0.9851
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+     -1332.043  1311.043
+    sample estimates:
+    mean of x mean of y 
+      3250.25   3260.75 
+```
+From this test at alpha = 0.05, we fail to reject the null hypothesis and conclude that there is not a significant difference between the base compositions of the consensus and simulated sequences.
