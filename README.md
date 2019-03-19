@@ -14,5 +14,5 @@ The ecoli sequence is from *Escherichia coli* str. K-12 substr. MG1655 taken fro
   
   # Initial Results
   To test the accuraccy of the simulation I ran 100 simulations of 1000 base pairs each and then compared the frequency of occurance of each base pair from all simulations to the actual composition of GMR 30. 
-  ![](/images.plot1.png)
+  ![](images/plot1.png)
 
